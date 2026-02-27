@@ -1,12 +1,7 @@
 import discord
 import random
-import builtins
+from deneme1 import gen_pass2
 
-def gen_pass2(p):
-    x = getattr(builtins,p)
-    gt = str(help(x))
-    return gt.__doc__#yapay zeka ile sadece
-    
 from deneme import gen_pass
 intents = discord.Intents.default()
 intents.message_content = True
@@ -33,11 +28,11 @@ async def on_message(message):
     if message.content.startswith('sss'):
         
         xer = int(message.content[3:])
-        await message.channel.send("şifre oluştrulacak!sayı girdiniz değilmi???")# Extract the number after '1'
+        await message.channel.send("password is going to make")# Extract the number after '1'
         try:
             gen_pass(xer)
         except:
-            message.channel.send("Lütfen bir sayı girin!")
+            message.channel.send("please enter a number")
     
         await message.channel.send(gen_pass(xer))
     if message.author == client.user:
@@ -48,3 +43,4 @@ async def on_message(message):
     elif message.content.startswith('sybau'):
         await message.channel.send("😭🥀")
     
+
